@@ -6,9 +6,25 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/home.css}"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="links">
+        <a th:href="@{/}">Home</a> <a th:href="@{/users}">Users</a>
+        </div>
+        <div class="container">
+            <form th:action="@{/}" method="post">
+                Etunimi <input type="text" name="name"/> 
+                <p></p>
+                Sukunimi <input type="text" name="surname"/>
+                <p></p>
+                Ikä <input type="text" name="age"/>
+                <p></p>
+                <input type="radio" name="gender">Nainen</input> <input type="radio" name="gender">Mies</input>
+                <p></p>
+                <input type="submit"/>
+            </form>
+        </div>
     </body>
 </html>
