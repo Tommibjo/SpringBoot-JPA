@@ -6,6 +6,7 @@
 package com.yritys.springbootbase.jpa;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
@@ -15,6 +16,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class User extends AbstractPersistable<Long> {
 
+    @Id
+    private Long id;
     private String name;
     private String surname;
     private String gender;
@@ -29,6 +32,16 @@ public class User extends AbstractPersistable<Long> {
         this.surname = surname;
         this.gender = gender;
         this.age = age;
+    }
+
+    @Override
+    public Long getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -67,5 +80,4 @@ public class User extends AbstractPersistable<Long> {
     public String toString() {
         return name + " " + surname;
     }
-
 }

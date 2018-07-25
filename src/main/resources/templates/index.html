@@ -8,22 +8,28 @@ and open the template in the editor.
     <head>
         <title>Home</title>
         <link rel="stylesheet" type="text/css" th:href="@{/home.css}"/>
+        <script th:src="@{/home.js}"></script>
     </head>
     <body>
-        <div class="links">
-        <a th:href="@{/}">Home</a> <a th:href="@{/users}">Users</a>
+
+        <div class="center">
+            <a th:href="@{/}">Home</a> <a th:href="@{/users}">Users</a>
+
+            <h1> Register user </h1>
         </div>
         <div class="container">
-            <form th:action="@{/}" method="post">
+            <form th:action="@{/}" method="post" name="registration">
                 Etunimi <input type="text" name="name"/> 
                 <p></p>
                 Sukunimi <input type="text" name="surname"/>
                 <p></p>
                 Ikä <input type="text" name="age"/>
                 <p></p>
-                <input type="radio" name="gender">Nainen</input> <input type="radio" name="gender">Mies</input>
+                <div class="radiobuttons">
+                    <input type="radio" name="gender">Nainen</input> <input type="radio" name="gender">Mies</input>
+                </div>
                 <p></p>
-                <input type="submit"/>
+                <input type="submit" onclick="return validateForm()"/>
             </form>
         </div>
     </body>

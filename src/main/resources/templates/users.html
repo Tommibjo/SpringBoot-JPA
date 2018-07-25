@@ -8,16 +8,24 @@ and open the template in the editor.
     <head>
         <title>Registered users</title>
         <link rel="stylesheet" type="text/css" th:href="@{/home.css}"/>
+        <script th:src="@{/users.js}"></script>
     </head>
     <body>
-        <div class="links">
+        <div class="center">
             <a th:href="@{/}">Home</a> <a href="@{/users}">Users</a>
+            <h1> Users list</h1>
         </div>
         <div class="container">
             <ul>
                 <li th:each="indeksi : ${userList}">
-                    <span class="list" th:text="${indeksi}"/> <form th:action="@{/${indeksi}}" method="GET"> <button value="Edit"/></form>
-                   <p></p>
+                    <div class="list" th:text="${indeksi}" id="list"/> 
+                    <form th:action="@{/user}" method="GET"> 
+                        <button name="id" th:value="${indeksi.id}">Edit</button> 
+                    </form>
+                    <form th:action="@{/users}" method="POST">
+                        <button name="id" th:value="${indeksi.id}">delete</button>
+                    </form>
+                    <p></p>
                 </li>
             </ul>
         </div>
